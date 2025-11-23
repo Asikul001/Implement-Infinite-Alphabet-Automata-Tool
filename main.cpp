@@ -72,14 +72,6 @@ bool check_dfa_nfa(std::string user_input, int init_state, std::vector<int> &fin
     auto count = range.first;
     while (count != range.second)
     {
-      auto check = count;
-      check++;
-      if (check != range.second && check->first.first == count->first.first && check->first.second==count->first.second )
-      {
-        count++;
-        continue;
-      }
-
       int next_state = count->second;
       std::string hold_string = user_input.substr(1, user_input.size() - 1);
       if (check_dfa_nfa(hold_string, next_state, final_state, dfa_nfa_pair))
